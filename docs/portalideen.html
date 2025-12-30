@@ -4,76 +4,46 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BFGoe — Webprojekte (Portalideen)</title>
-  <meta name="description" content="Übersicht möglicher Webprojekte für BFGoe: statische MVPs, Backend‑Projekte, interne Tools, Öffentlichkeitsarbeit. Filterbar, suchbar und für GitHub Pages optimiert." />
+  <meta name="description" content="Übersicht möglicher Webprojekte für BFGoe: statische MVPs, Backend‑Projekte, interne Tools, Öffentlichkeitsarbeit. Filterbar, suchbar und präsentabel." />
   <link rel="icon" href="data:," />
   <style>
     :root{
-      --bg:#0f1724; --card:#0b1320; --muted:#98a0b3; --accent:#47c9a2;
-      --glass: rgba(255,255,255,0.03);
-      --max-width: 1100px;
-      --radius:12px;
-      --glass-2: rgba(255,255,255,0.02);
-      color-scheme: dark;
+      --bg: #f7fafc; --card:#ffffff; --muted:#556; --accent:#0b87a7;
+      --glass: rgba(11,135,167,0.06); --glass-2: rgba(11,135,167,0.03);
+      --max-width: 1100px; --radius:12px; color-scheme: light;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:
-      linear-gradient(180deg,#071021 0%, #071827 45%, #07101a 100%);
-      color:#e6eef6;-webkit-font-smoothing:antialiased;}
-    .wrap{max-width:var(--max-width);margin:28px auto;padding:24px;}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f8fbfc 0%, #eef6f8 60%, #ffffff 100%);color:#0b1720;-webkit-font-smoothing:antialiased;}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:28px;}
     header{display:flex;gap:18px;align-items:center;margin-bottom:18px}
-    .brand{
-      display:flex;align-items:center;gap:14px;
-    }
-    .logo{
-      width:64px;height:64px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),#2bb0e0);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;color:#012a22;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.5);
-    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2bb0e0);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 6px 18px rgba(11,135,167,0.12)}
     h1{font-size:20px;margin:0}
     .meta{color:var(--muted);font-size:13px}
-    .hero{
-      margin-top:14px;padding:18px;border-radius:var(--radius);
-      background:linear-gradient(180deg,var(--glass),var(--glass-2));
-      border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-      display:flex;gap:18px;align-items:center;flex-wrap:wrap;
-    }
+    .hero{margin-top:14px;padding:18px;border-radius:var(--radius);background:linear-gradient(180deg,var(--glass),var(--glass-2));border:1px solid rgba(11,135,167,0.08);box-shadow:0 8px 20px rgba(11,135,167,0.04);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
     .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    input[type="search"]{
-      min-width:260px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
-      background:transparent;color:inherit;outline:none;font-size:14px;
-    }
-    select,button{
-      padding:9px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
-      background:transparent;color:inherit;font-size:14px;cursor:pointer;
-    }
+    input[type="search"]{min-width:300px;padding:10px 12px;border-radius:10px;border:1px solid rgba(11,135,167,0.12);background:#fff;color:inherit;outline:none;font-size:14px}
+    select,button{padding:9px 12px;border-radius:10px;border:1px solid rgba(11,135,167,0.08);background:#fff;color:inherit;font-size:14px;cursor:pointer}
     .summary{margin-left:auto;text-align:right}
-    .grid{
-      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px;
-    }
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
     @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.grid{grid-template-columns:1fr}}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 18px rgba(2,6,23,0.45);transition:transform .18s,box-shadow .18s;
-    }
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(2,6,23,0.7)}
+    .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid rgba(11,135,167,0.06);box-shadow:0 6px 18px rgba(11,135,167,0.04);transition:transform .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(11,135,167,0.08)}
     .card h3{margin:0 0 8px 0;font-size:16px;display:flex;align-items:center;gap:10px}
-    .num{display:inline-block;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);font-weight:600;color:var(--accent);font-size:13px}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+    .num{display:inline-block;padding:6px 8px;border-radius:8px;background:rgba(11,135,167,0.08);font-weight:600;color:var(--accent);font-size:13px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(11,135,167,0.06);border:1px solid rgba(11,135,167,0.04);color:var(--muted)}
     .muted{color:var(--muted);font-size:13px;margin:8px 0}
     .list{margin:8px 0 12px 0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap}
-    .list li{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .list li{background:rgba(11,135,167,0.04);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
     .actions{display:flex;gap:8px}
-    a.btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;color:inherit;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);font-size:14px}
+    a.btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;color:#fff;background:var(--accent);border:1px solid rgba(11,135,167,0.12)}
     .top5{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-    .chip{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,rgba(71,201,162,0.14),rgba(43,176,224,0.06));border:1px solid rgba(71,201,162,0.08);color:var(--accent);font-weight:600}
+    .chip{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,rgba(11,135,167,0.14),rgba(43,176,224,0.06));border:1px solid rgba(11,135,167,0.08);color:var(--accent);font-weight:600}
     footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
-    .badge{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
-    .highlight{border:1px solid rgba(71,201,162,0.18);box-shadow:0 8px 30px rgba(71,201,162,0.04)}
+    .badge{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(11,135,167,0.04);color:var(--muted);border:1px solid rgba(11,135,167,0.04)}
+    .highlight{border:1px solid rgba(11,135,167,0.16);box-shadow:0 8px 30px rgba(11,135,167,0.04)}
     .section-title{display:flex;align-items:center;gap:8px;margin:16px 0 6px 0}
     .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
     .note{font-size:13px;color:var(--muted)}
@@ -90,7 +60,7 @@
         </div>
       </div>
       <div class="summary">
-        <div class="note">Quelle und vollständige Liste: <a href="https://github.com/programmiererphp/possible-webportale-bfgoe/blob/c7aabf4149e15c3a8ca1071a04f2706f93fc0d79/bfgoe_webprojekte_liste.md" style="color:var(--accent)" target="_blank" rel="noopener">bfgoe_webprojekte_liste.md</a></div>
+        <div class="note">Quelle und vollständige Liste: <a href="https://github.com/programmiererphp/possible-webportale-bfgoe/blob/c7aabf4149e15c3a8ca1071a04f2706f93fc0d79/bfgoe_webprojekte_liste.md" target="_blank" rel="noopener">bfgoe_webprojekte_liste.md</a></div>
         <div style="margin-top:8px"><span class="badge">28 Ideen</span> <span class="badge">Top‑5 empfohlen</span></div>
       </div>
     </header>
@@ -115,238 +85,228 @@
       </div>
 
       <div class="top5" aria-hidden="false" style="margin-left:auto">
-        <div class="chip">Top‑5</div>
-        <div class="note">1) Angebots‑Navigator  2) Termin‑ & Anfrage‑System  3) BiF‑Sprachkurs‑Koordination  4) MOBIL Gründer*innen‑Portal  5) Gemeinwesenarbeit‑Plattform</div>
+        <div class="chip">Top‑5 — Empfehlungsreihenfolge</div>
+        <div class="note">1) Angebots‑Navigator — schnelle Hilfe für Ratsuchende  • 2) Zentrales Termin‑ & Anfrage‑System  • 3) BiF‑Sprachkurs‑Koordination  • 4) MOBIL Gründer*innen‑Portal  • 5) Gemeinwesenarbeit‑Plattform</div>
       </div>
     </section>
 
     <main id="projects" class="grid" aria-live="polite">
-      <!-- Project cards generated from the original markdown list -->
-      <article class="card" data-section="A" data-backend="no" data-search="1 Angebots-Navigator Welches Angebot passt zu mir 6–10 Fragen Alter Status Sprache Ziel Empfehlung Kontakt Ort Checkliste Portfolio">
+
+      <!-- Top 5 zuerst -->
+
+      <article class="card highlight" data-section="A" data-backend="no" data-search="1 Angebots-Navigator Welches Angebot passt zu mir 6-10 Fragen Alter Status Sprache Ziel Empfehlung Kontakt Ort Checkliste Portfolio Suche">
         <h3><span class="num">1</span> Angebots‑Navigator <span class="tag" style="margin-left:auto">A — statisch (MVP)</span></h3>
         <div class="muted">Backend: nein (MVP), optional später ja</div>
-        <p>6–10 Fragen (Alter/Status/Sprache/Ziel) → Empfehlung passender BFGoe‑Angebote inkl. Kontakt/Ort/Checkliste. Unterstützt: komplettes Portfolio.</p>
-        <ul class="list"><li>Frage‑Wizard</li><li>Empfehlungen</li><li>Checkliste & Kontakt</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/angebote-uebersicht.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Kurzbeschreibung: Ein leichter Frage‑Wizard (6–10 Fragen), der Nutzer*innen schnell zu passenden Angeboten führt. Ideal als Startseite für Ratsuchende, die nicht wissen, welches Angebot passt.</p>
+        <p>Detaillierter Nutzen: Die Eingaben (Alter, Status, Sprache, Ziel) führen zu einer priorisierten Empfehlung, zeigen Kontakt, Ort, Verfügbarkeit und eine kurze Checkliste (z. B. Mitbringsel, Unterlagen). Für die Redaktion gibt es eine einfache Indexdatei zur Pflege aller Angebote.</p>
+        <ul class="list"><li>Frage‑Wizard</li><li>Empfehlungen mit Kontakt</li><li>Checkliste & Links</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/angebote-uebersicht.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="A" data-backend="no" data-search="2 Standort Anfahrts-Hub Karte Öffnungszeiten OSM Google ÖPNV Barriereinfos PDFs Ansprechpartner">
-        <h3><span class="num">2</span> Standort-/Anfahrts‑Hub <span class="tag" style="margin-left:auto">A — statisch</span></h3>
-        <div class="muted">Backend: nein</div>
-        <p>Standort‑Finder (OSM/Google), ÖPNV‑Hinweise, Barriereinfos, Öffnungszeiten, PDFs/Ansprechpartner, "Nächster Standort" nach Thema.</p>
-        <ul class="list"><li>Kartenintegration</li><li>Öffnungszeiten</li><li>Barrierefreiheit</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/kontakt/ansprechpartner.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="A" data-backend="no" data-search="3 Download-Bibliothek Filter Tags für wen ist das Indexdatei Volltextsuche Favoriten Teilen">
-        <h3><span class="num">3</span> Download‑Bibliothek 2.0 <span class="tag" style="margin-left:auto">A — statisch/Index</span></h3>
-        <div class="muted">Backend: nein (Indexdatei), optional später ja</div>
-        <p>Tagging/Filter nach Zielgruppe/Projekt/Format, Volltextsuche, Kurztexte "für wen ist das?", Favoriten/Teilen.</p>
-        <ul class="list"><li>Filter & Tags</li><li>Volltextsuche</li><li>Sharing</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/service/downloads.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="A" data-backend="no" data-search="4 Mehrsprachige Erste Schritte in Göttingen DE EN AR UKR RU Schritt fuer Schritt Ankommen Erstberatung Kurse">
-        <h3><span class="num">4</span> Mehrsprachige "Erste Schritte in Göttingen" <span class="tag" style="margin-left:auto">A — statisch</span></h3>
-        <div class="muted">Backend: nein</div>
-        <p>Einfache Schritt‑für‑Schritt‑Seite (Ankommen, Erstberatung, Kurse, Termine), Karte/Route, Download‑PDFs, "Was bringe ich mit?".</p>
-        <ul class="list"><li>Mehrsprachige Inhalte</li><li>Praktische Checklisten</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="A" data-backend="no" data-search="5 Projekt-Landingpages CTAs Jetzt anrufen Termin anfragen Unterlagen FAQ Checkliste So läuft es ab">
-        <h3><span class="num">5</span> Projekt‑Landingpages mit klaren CTAs <span class="tag" style="margin-left:auto">A — statisch</span></h3>
-        <div class="muted">Backend: nein</div>
-        <p>Je Projekt eine verständliche Seite statt Flyer‑zentriert: FAQ, Checkliste, Kontakt‑CTA, "So läuft es ab". Unterstützt viele Projekte.</p>
-        <ul class="list"><li>CTAs</li><li>FAQ</li><li>Kontakt</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/pro-aktiv-center.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <!-- B) Haupthebel -->
-      <article class="card highlight" data-section="B" data-backend="yes" data-search="6 Zentrales Termin Anfrage System Beratung Coaching BiF MOBIL Terminarten freie Slots Rückrufbitte Dokumente hochladen Bestätigung Erinnerung Rollen">
+      <article class="card highlight" data-section="B" data-backend="yes" data-search="6 Termin Anfrage System Buchung Selbstservice Bestätigung Erinnerung Rollen Dokumente Upload Rückruftermine Kalender">
         <h3><span class="num">6</span> Zentrales Termin‑ & Anfrage‑System <span class="tag" style="margin-left:auto">B — Backend</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Terminarten, freie Slots, Rückrufbitte, Dokumente hochladen, automatische Bestätigung/Erinnerung, Rollen (Klient*in/Mitarbeitende/Admin).</p>
-        <ul class="list"><li>Self‑Service</li><li>Dokumente & Erinnerungen</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Kurzbeschreibung: Einheitliches Self‑Service‑Portal zur Terminanfrage und -verwaltung für Beratung, Coaching und Kurse.</p>
+        <p>Detaillierter Nutzen: Unterstützt verschiedene Terminarten, freie Slots, Wartelisten und Dokumenten‑Uploads. Automatische Bestätigungen und Erinnerungen reduzieren Telefonaufwand; Mitarbeitende sehen Terminlisten, Notizen und können Termine verwalten.</p>
+        <ul class="list"><li>Kalender & Slots</li><li>Dokumente & Erinnerungen</li><li>Rollen (Klient*in / Mitarbeitende)</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="B" data-backend="yes" data-search="7 MeinBFGoe Teilnehmer Portal Auth Datenspeicher persönlicher Plan Termine Aufgaben Uploads Fortschritt Nachrichten DSGVO">
-        <h3><span class="num">7</span> „MeinBFGoe“ — Teilnehmer*innen‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja (Auth + Datenspeicher)</div>
-        <p>Persönlicher Plan (Termine/Aufgaben), Uploads (CV/Zeugnisse), Fortschritt, sichere Nachrichten, Einwilligungen/DSGVO.</p>
-        <ul class="list"><li>Persönliches Dashboard</li><li>Datei‑Upload</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="8 Schulpflicht Tagesstruktur Tracker Anwesenheit Wochenziele Lernmodule Werkstatt Einsatzplan Reflexionen Auswertung">
-        <h3><span class="num">8</span> Schulpflicht-/Tagesstruktur‑Tracker <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Anwesenheit, Wochenziele, Lernmodule, Werkstatt-/Küchen-/Garten‑Einsatzplan, kurze Reflexionen, Auswertung.</p>
-        <ul class="list"><li>Anwesenheitstracking</li><li>Lernmodule</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/angebote-uebersicht.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="optional" data-search="9 Bewerbungs-Werkstatt Webapp CV Builder ToDos Lebenslauf Generator Checklisten Vorlagen Export PDF">
-        <h3><span class="num">9</span> Bewerbungs‑Werkstatt (Webapp) <span class="tag" style="margin-left:auto">B — optional</span></h3>
-        <div class="muted">Backend: optional (für Speichern/Verlauf)</div>
-        <p>Lebenslauf‑Generator, Checklisten, Bewerbungsstatus, Vorlagen, Export PDF, Termin‑CTA.</p>
-        <ul class="list"><li>CV‑Builder</li><li>PDF‑Export</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/pro-aktiv-center.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="10 Praktikum Werkstatt Match Profile Interessen Skills verfügbare Plätze Matching Betreuungsnotizen Feedback Verlauf">
-        <h3><span class="num">10</span> „Praktikum & Werkstatt‑Match“ <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Profile (Interessen/Skills), verfügbare Plätze/Projekte, Matching, Betreuungsnotizen, Feedback, Verlauf.</p>
-        <ul class="list"><li>Matching</li><li>Platzverwaltung</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/ausbildung-/-werkstaetten.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="11 Careleaver Portal Back Up Ressourcen Gruppenangebote Buddy System Termin Chat Wissensbasis Wohnen Finanzen">
-        <h3><span class="num">11</span> Careleaver‑Portal (Back Up) <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja (geschützter Bereich)</div>
-        <p>Termin/Chat, Wissensbasis (Wohnen/Finanzen), Gruppenaktivitäten‑Kalender, Peer‑Buddy‑Matching, Erinnerungen.</p>
-        <ul class="list"><li>Geschützter Bereich</li><li>Buddy‑Matching</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/backup-begleitung-fuer-careleaverinnen.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="12 Hello Europe Bewerbungs Vor Nachbereitung Bewerbung Dokumente Kompetenzprofil Module Portfolio Kompetenznachweis">
-        <h3><span class="num">12</span> Hello Europe Bewerbungs- & Vor/Nachbereitungssystem <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Bewerbung, Dokumente, Kompetenzprofil, Vorbereitungs‑Module, Nachbereitung (Portfolio/Kompetenznachweis), Erinnerungen.</p>
-        <ul class="list"><li>Kompetenzprofil</li><li>Module & Portfolio</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/hello-europe.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="13 Adelante Qualifizierungsportal EU Abschlüsse DE Arbeitsmarkt Skills Mapping Nachweise Partnerbetriebe Sprach Anpassungsplan">
-        <h3><span class="num">13</span> Adelante‑Qualifizierungsportal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Skills‑Mapping, Nachweise, Partnerbetriebe/Kitas, Sprach-/Anpassungsplan, Fortschrittsberichte, Matching‑Verlauf.</p>
-        <ul class="list"><li>Skills‑Mapping</li><li>Partner‑Netzwerk</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/adelante.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="14 BiF Sprachkurs Koordination Wartelisten Kursplaetze Anmeldung Kurskalender Registrierung Einstufung Reporting">
+      <article class="card highlight" data-section="B" data-backend="yes" data-search="14 BiF Sprachkurs Koordination Registrierung Einstufung Warteliste Kursplatz Vergabe Kalender Reporting Reminder">
         <h3><span class="num">14</span> BiF‑Sprachkurs‑Koordination <span class="tag" style="margin-left:auto">B — Backend</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Registrierung, Einstufung, Warteliste, Kursplatz‑Vergabe, Kurskalender, automatische Reminder (optional), Reporting.</p>
-        <ul class="list"><li>Anmeldung & Wartelisten</li><li>Kurskalender</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Kurzbeschreibung: Verwaltung von Anmeldungen, Einstufungen und Wartelisten für Sprachkurse.</p>
+        <p>Detaillierter Nutzen: Zentralisierte Kursverwaltung mit automatischer Vergabe, Wartelisten‑Handling und Erinnerungsmails. Reporting‑Funktionen helfen bei Planung und Kapazitätssteuerung.</p>
+        <ul class="list"><li>Anmeldung & Warteliste</li><li>Kurskalender</li><li>Reporting</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="B" data-backend="yes" data-search="15 Willkommen im Betrieb Arbeitgeber Portal Unternehmensprofile Bedarfe Plätze Matching Checklisten Betreuungsverlauf">
-        <h3><span class="num">15</span> „Willkommen im Betrieb“ — Arbeitgeber‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Unternehmensprofile, Bedarfe/Plätze, Matching mit Profilen, Checklisten (Dokumente/Prozesse), Betreuungsverlauf, Feedback.</p>
-        <ul class="list"><li>Unternehmensprofile</li><li>Matching</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte/arbeitgeberberatung.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="16 MYWAY Community Portal Frauen mit Migration Erfahrung Gruppenangebote Kinderbetreuung Austausch Termin CTAs">
-        <h3><span class="num">16</span> MYWAY‑Community‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Gruppenangebote, Kinderbetreuungs‑Infos, Kurs-/Praktikums‑Vermittlung, geschützter Austauschraum, Termin‑CTAs.</p>
-        <ul class="list"><li>Gruppen & Informationen</li><li>Geschützter Austausch</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte/myway-goettingen.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="optional" data-search="17 FairBleib Arbeitsmarkt Check Wizard Dokument Checkliste Weiterbildungs Katalog Termin">
-        <h3><span class="num">17</span> FairBleib+ „Arbeitsmarkt‑Check“ <span class="tag" style="margin-left:auto">B — optional</span></h3>
-        <div class="muted">Backend: optional</div>
-        <p>Kurzassistent („Welche Optionen habe ich?“), Dokument‑Checkliste, Weiterbildungs‑Katalog, Termin anfragen.</p>
-        <ul class="list"><li>Wizard</li><li>Weiterbildungs‑Katalog</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte/fairbleib.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="18 Gemeinwesenarbeit Plattform Weststadt Grone Angebote Mitmach Aktionen Nachbarschaftshilfe Stadtteil Kalender Helfer Pool Mikro Aufträge Schwarzes Brett">
-        <h3><span class="num">18</span> Gemeinwesenarbeit‑Plattform (Weststadt/Grone) <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja (für Accounts/Beiträge), MVP auch ohne</div>
-        <p>Stadtteil‑Kalender, Helfer‑Pool, Mikro‑Aufträge („2h Hilfe“), Schwarzes Brett, Gruppen/Interessenskreise.</p>
-        <ul class="list"><li>Kalender & Helfer‑Pool</li><li>Mitmach‑Funktionen</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="19 Weststadtzentrum Raum Gruppenbuchung Raumkalender Buchungsanfrage Hausregeln Schlüssel Check in Feedback Auslastung">
-        <h3><span class="num">19</span> Weststadtzentrum Raum‑ & Gruppenbuchung <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Raumkalender, Buchungsanfrage, Hausregeln, Schlüssel/Check‑in Prozess, Feedback, Auslastungsstatistiken.</p>
-        <ul class="list"><li>Buchungssystem</li><li>Check‑in/Schlüssel</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/weststadtzentrum.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="20 AGH TINA Aufgaben Maßnahmen Board Quartierarbeit Maßnahmenliste Zuständigkeiten Foto Doku Stunden Material Wirkung Export">
-        <h3><span class="num">20</span> AGH/TINA Aufgaben‑ & Maßnahmen‑Board <span class="tag" style="margin-left:auto">B — Backend</span></h3>
-        <div class="muted">Backend: ja</div>
-        <p>Maßnahmenliste, Zuständigkeiten, Foto‑Doku (vorher/nachher), Stunden/Material, Wirkung/Ergebnisse, Export für Berichte.</p>
-        <ul class="list"><li>Maßnahmenverwaltung</li><li>Reporting</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/agh-quartierarbeit.html" target="_blank" rel="noopener">Link</a></div>
-      </article>
-
-      <article class="card" data-section="B" data-backend="yes" data-search="21 MOBIL Gründerinnen Portal Beratung Seminar Buchung Material Bibliothek Aufgaben Businessplan Wizard">
+      <article class="card highlight" data-section="B" data-backend="yes" data-search="21 MOBIL Gruenderinnen Portal Profil Buchung Material Aufgaben Businessplan Beratung Teilnahme Verwaltung">
         <h3><span class="num">21</span> MOBIL Gründer*innen‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Profil/Status, Buchung/Teilnahme, Material‑Bibliothek, Aufgabenliste („Gewerbe/Steuer/Marketing“), optional Businessplan‑Wizard.</p>
-        <ul class="list"><li>Buchung & Materialien</li><li>Businessplan‑Hilfen</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gruendungsberatung.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Kurzbeschreibung: Unterstützung für Gründer*innen: Profiles, Buchungen, Materialien und ein Leitfaden durch Gründungs‑schritte.</p>
+        <p>Detaillierter Nutzen: Ermöglicht Profilverwaltung, Teilnahmemanagement für Seminare, Zugriff auf Vorlagen (Businessplan, Finanzplan) und Aufgabenlisten. Nützlich zur Verlängerung von Beratungserfolgen und zur Vernetzung mit Mentor*innen.</p>
+        <ul class="list"><li>Buchung & Material</li><li>Businessplan‑Hilfen</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gruendungsberatung.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="B" data-backend="yes" data-search="22 Fortbildungs Portal Systemische Beratung Kursverwaltung Anmeldung Rechnung Teilnahmebestätigung Material Alumni">
+      <article class="card highlight" data-section="B" data-backend="yes" data-search="18 Gemeinwesenarbeit Plattform Stadtteil Kalender Helfer Pool Mikroauftraege Schwarzes Brett Gruppen">
+        <h3><span class="num">18</span> Gemeinwesenarbeit‑Plattform (Weststadt/Grone) <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja (für Accounts/Beiträge), MVP auch ohne</div>
+        <p>Kurzbeschreibung: Digitales Stadtteilzentrum: Kalender, Helfer‑Pool, Schwarzes Brett und Veranstaltungseinträge.</p>
+        <p>Detaillierter Nutzen: Erleichtert Nachbarschafts‑ und Ehrenamtskoordination, bietet Mikroaufträge (z. B. 2‑Stunden‑Hilfe), Gruppenräume und einfache Kommunikation der Gemeinwesenarbeit vor Ort.</p>
+        <ul class="list"><li>Kalender & Helfer‑Pool</li><li>Mitmach‑Funktionen</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <!-- Restliche Projekte: etwas ausführlichere Beschreibungen, mehr Schlagwörter -->
+
+      <article class="card" data-section="A" data-backend="no" data-search="2 Standort Anfahrts-Hub Karte OSM Google Oeffnungszeiten Barriereinfos Ansprechpartner PDFs">
+        <h3><span class="num">2</span> Standort-/Anfahrts‑Hub <span class="tag" style="margin-left:auto">A — statisch</span></h3>
+        <div class="muted">Backend: nein</div>
+        <p>Beschreibung: Klar strukturierte Übersicht aller BFGoe‑Standorte mit Anfahrtsoptionen (OSM/Google), ÖPNV‑Hinweisen, Barrierefreiheitsinformationen, Ansprechpartnern und relevanten PDFs. Nutzer*innen finden schnell den nächstgelegenen Anlaufpunkt.</p>
+        <ul class="list"><li>Kartenintegration</li><li>Barrierefreiheit</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/kontakt/ansprechpartner.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="A" data-backend="no" data-search="3 Download-Bibliothek Tags Filter Volltextsuche Favoriten Teilen PDFs">
+        <h3><span class="num">3</span> Download‑Bibliothek 2.0 <span class="tag" style="margin-left:auto">A — statisch/Index</span></h3>
+        <div class="muted">Backend: nein (Indexdatei), optional später ja</div>
+        <p>Beschreibung: Zentrale Ablage für Flyer, Formulare und Publikationen mit Tagging, Filterfunktionen und Volltextsuche. Nutzer*innen können Dokumente teilen und Lesezeichen setzen.</p>
+        <ul class="list"><li>Filter & Tags</li><li>Volltextsuche</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/service/downloads.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="A" data-backend="no" data-search="4 Mehrsprachig Erste Schritte Ankommen Erstberatung Kurse DE EN AR UKR RU">
+        <h3><span class="num">4</span> Mehrsprachige "Erste Schritte in Göttingen" <span class="tag" style="margin-left:auto">A — statisch</span></h3>
+        <div class="muted">Backend: nein</div>
+        <p>Beschreibung: Kompakte, mehrsprachige Anleitung (DE/EN/AR/UKR/RU) für das Ankommen in Göttingen: erste Schritte, notwendige Unterlagen, Anlaufstellen und Checklisten.</p>
+        <ul class="list"><li>Mehrsprachige Inhalte</li><li>Checklisten</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="A" data-backend="no" data-search="5 Landingpages CTA FAQ Checkliste Kontakt Projektseiten">
+        <h3><span class="num">5</span> Projekt‑Landingpages mit klaren CTAs <span class="tag" style="margin-left:auto">A — statisch</span></h3>
+        <div class="muted">Backend: nein</div>
+        <p>Beschreibung: Für jedes größeres Projekt eine zielgerichtete Landingpage mit FAQ, Checkliste und klaren Call‑to‑Actions (z. B. "Jetzt anrufen", "Termin anfragen").</p>
+        <ul class="list"><li>CTAs</li><li>FAQ</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/pro-aktiv-center.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="7 MeinBFGoe Teilnehmer Portal Auth Dashboard Dokumente Termine Nachrichten DSGVO">
+        <h3><span class="num">7</span> „MeinBFGoe" — Teilnehmer*innen‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja (Auth + Datenspeicher)</div>
+        <p>Beschreibung: Persönliches Dashboard für Teilnehmende: Termine, Aufgaben, Uploads (z. B. CV), sichere Nachrichten und Fortschrittsanzeige. DSGVO‑konforme Speicherung und Einwilligungsverwaltung.</p>
+        <ul class="list"><li>Persönliches Dashboard</li><li>Datei‑Upload</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="8 Schulpflicht Tracker Anwesenheit Wochenziele Lernmodule Auswertung">
+        <h3><span class="num">8</span> Schulpflicht-/Tagesstruktur‑Tracker <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Tracking von Anwesenheit, Wochenzielen und Lernmodulen; nützlich für pädagogische Planung und Nachweise.</p>
+        <ul class="list"><li>Anwesenheit</li><li>Lernmodule</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/angebote-uebersicht.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="optional" data-search="9 Bewerbungs Werkstatt CV Builder PDF Export Checklisten Vorlagen">
+        <h3><span class="num">9</span> Bewerbungs‑Werkstatt (Webapp) <span class="tag" style="margin-left:auto">B — optional</span></h3>
+        <div class="muted">Backend: optional</div>
+        <p>Beschreibung: Interaktiver Lebenslauf‑Generator, Vorlagen, Checklisten und PDF‑Export. Optionales Speichern von Entwürfen im Account.</p>
+        <ul class="list"><li>CV‑Builder</li><li>PDF‑Export</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/pro-aktiv-center.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="10 Praktikum Match Profile Interessen Skills Verfuegbare Plaetze Matching Betreuungsnotizen Feedback">
+        <h3><span class="num">10</span> „Praktikum & Werkstatt‑Match“ <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Matching‑Portal für Praktika und Werkstattplätze: Profile, Interessen, verfügbare Plätze und Feedback/Betreuungsnotizen.</p>
+        <ul class="list"><li>Matching</li><li>Platzverwaltung</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/ausbildung-/-werkstaetten.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="11 Careleaver Portal Chat Wissensbasis Wohnen Finanzen Gruppen Buddy Matching Erinnerungen">
+        <h3><span class="num">11</span> Careleaver‑Portal (Back Up) <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja (geschützter Bereich)</div>
+        <p>Beschreibung: Geschützter Bereich für Careleaver: Termine, Chat, Wissensbasis (Wohnen/Finanzen) und Peer‑Buddy‑Matching.</p>
+        <ul class="list"><li>Wissensbasis</li><li>Buddy‑Matching</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/backup-begleitung-fuer-careleaverinnen.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="12 Hello Europe Bewerbung Dokumente Kompetenzprofil Module Portfolio Nachweise">
+        <h3><span class="num">12</span> Hello Europe Bewerbungs- & Vor/Nachbereitungssystem <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Tool zur Vorbereitung und Nachbereitung von Bewerbungen inklusive Kompetenzprofil, Modulen und Portfolio‑Erstellung.</p>
+        <ul class="list"><li>Kompetenzprofil</li><li>Portfolio</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/hello-europe.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="13 Adelante Qualifizierungsportal Nachweise Partnerbetriebe Skills Mapping Fortschritte">
+        <h3><span class="num">13</span> Adelante‑Qualifizierungsportal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Portal zur Dokumentation von Qualifikationen, Skills‑Mapping, Partnerbetrieben und Nachweisen für den Arbeitsmarkt.</p>
+        <ul class="list"><li>Skills‑Mapping</li><li>Partner‑Netzwerk</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf/adelante.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="optional" data-search="17 FairBleib Arbeitsmarkt Check Wizard Dokument Checkliste Weiterbildungs Katalog">
+        <h3><span class="num">17</span> FairBleib+ „Arbeitsmarkt‑Check" <span class="tag" style="margin-left:auto">B — optional</span></h3>
+        <div class="muted">Backend: optional</div>
+        <p>Beschreibung: Kurzassistent zur Orientierung im Arbeitsmarkt mit Dokument‑Check und Verweisen auf passende Weiterbildungsangebote.</p>
+        <ul class="list"><li>Wizard</li><li>Weiterbildungs‑Katalog</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/bildungszentrum-fuer-zugewanderte/fairbleib.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="19 Weststadtzentrum Raum Buchung Raumkalender Hausregeln Checkin Feedback Auslastung">
+        <h3><span class="num">19</span> Weststadtzentrum Raum‑ & Gruppenbuchung <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Raumkalender, Buchungsanfragen und Check‑in/Schlüsselmanagement für das Weststadtzentrum. Nützlich zur besseren Auslastungsplanung.</p>
+        <ul class="list"><li>Buchungssystem</li><li>Check‑in</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/weststadtzentrum.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="20 AGH TINA Aufgaben Board Quartierarbeit Massnahmen Zuständigkeit Foto Doku Stunden Material Export">
+        <h3><span class="num">20</span> AGH/TINA Aufgaben‑ & Maßnahmen‑Board <span class="tag" style="margin-left:auto">B — Backend</span></h3>
+        <div class="muted">Backend: ja</div>
+        <p>Beschreibung: Verwaltung von Aufgaben und Maßnahmen inkl. Foto‑Dokumentation, Stunden und Materialverbrauch; Exportfunktionen für Berichte.</p>
+        <ul class="list"><li>Maßnahmenverwaltung</li><li>Reporting</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/agh-quartierarbeit.html" target="_blank" rel="noopener">Mehr</a></div>
+      </article>
+
+      <article class="card" data-section="B" data-backend="yes" data-search="22 Fortbildungs Portal Kursverwaltung Anmeldung Rechnung Teilnahmebestätigung Material Alumni">
         <h3><span class="num">22</span> Fortbildungs‑Portal <span class="tag" style="margin-left:auto">B — Backend</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Kursverwaltung, Bewerbung/Anmeldung, Rechnung/Teilnahmebestätigung, Material‑Bereich, Alumni‑Netzwerk.</p>
-        <ul class="list"><li>Kursverwaltung</li><li>Rechnungen & Bestätigungen</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/fortbildungen/systemische-beratung-grundkurs.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Beschreibung: Verwaltung von Fortbildungen mit Anmeldungen, Rechnungsstellung, Materialzugang und Alumni‑Pflege.</p>
+        <ul class="list"><li>Kursverwaltung</li><li>Rechnungen</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/fortbildungen/systemische-beratung-grundkurs.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <!-- C) Transparenz -->
-      <article class="card" data-section="C" data-backend="optional" data-search="23 Impact Dashboard Was bewirken wir KPIs Teilnahmen Abschlüsse Visualisierungen Studien Archiv Export Reports">
+      <article class="card" data-section="C" data-backend="optional" data-search="23 Impact Dashboard KPIs Teilnahmen Abschluesse Visualisierungen Studien Archiv Export">
         <h3><span class="num">23</span> Impact‑Dashboard + Studien‑Archiv <span class="tag" style="margin-left:auto">C — hybrid</span></h3>
-        <div class="muted">Backend: optional (für Kennzahlenpflege)</div>
-        <p>KPIs (Teilnahmen/Abschlüsse/Vermittlungen), Visualisierungen, verlinkte Evaluationen/Flyer, Export‑Reports.</p>
+        <div class="muted">Backend: optional</div>
+        <p>Beschreibung: Visualisierung zentraler Kennzahlen (Teilnahmen, Abschlüsse, Vermittlungen) und Archiv wichtiger Evaluationen und Studien.</p>
         <ul class="list"><li>KPI‑Visualisierungen</li><li>Studienarchiv</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/service/downloads.html" target="_blank" rel="noopener">Link</a></div>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/service/downloads.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="C" data-backend="optional" data-search="24 Interaktive Gemeinwohl Seite GWÖ Prinzipien Maßnahmen Feedback Tool Ideenbox Fortschritt">
+      <article class="card" data-section="C" data-backend="optional" data-search="24 Gemeinwohl Seite GWOE Werte Praxis Massnahmen Ideenbox Fortschrittsanzeige">
         <h3><span class="num">24</span> Interaktive Gemeinwohl‑Seite (GWÖ) <span class="tag" style="margin-left:auto">C — hybrid</span></h3>
         <div class="muted">Backend: optional</div>
-        <p>GWÖ‑Werte & Praxisbeispiele, Maßnahmen‑Tracker, Ideenbox/Feedback, Fortschrittsstand.</p>
-        <ul class="list"><li>Interaktive Öffentlichkeitsarbeit</li><li>Ideenbox</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/engagement/gemeinwohloekonomie-gwoe.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Beschreibung: Präsentation von GWÖ‑Prinzipien mit Praxisbeispielen, Maßnahmen‑Tracker und Ideenbox für Mitarbeitende und Öffentlichkeit.</p>
+        <ul class="list"><li>Interaktiv</li><li>Ideenbox</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/engagement/gemeinwohloekonomie-gwoe.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="C" data-backend="optional" data-search="25 Grünes Levinquartier Mitmach Plattform Karte Aktionen Fortschritt Fotodoku Newsletter Meldungen Problemstelle">
+      <article class="card" data-section="C" data-backend="optional" data-search="25 Gruenes Levinquartier Mitmach Plattform Karte Aktionen Fotodoku Newsletter Meldungen">
         <h3><span class="num">25</span> "Grünes Levinquartier" Mitmach‑Plattform <span class="tag" style="margin-left:auto">C — hybrid</span></h3>
-        <div class="muted">Backend: optional (für Aktionen/Anmeldung), MVP auch ohne</div>
-        <p>Projektkarte, Mitmachtermine, Fotodoku, Newsletter‑Opt‑in, Meldungen („Problemstelle/Hitzeinsel“).</p>
+        <div class="muted">Backend: optional</div>
+        <p>Beschreibung: Lokale Umwelt‑Mitmachplattform mit Karte, Aktionen, Fotodokumentation und Meldesystem für Problemstellen.</p>
         <ul class="list"><li>Karte & Aktionen</li><li>Fotodoku</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/engagement/gruenes-levinquartier.html" target="_blank" rel="noopener">Link</a></div>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/engagement/gruenes-levinquartier.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="C" data-backend="no" data-search="26 Spenden Sachspenden Infohub Weiterleitung FAQ Was wird gebraucht Abhol Ausgabe Regeln Alternativen">
+      <article class="card" data-section="C" data-backend="no" data-search="26 Spenden Infohub Sachspenden Was wird gebraucht Abholung Ausgabe Regeln">
         <h3><span class="num">26</span> Spenden-/Sachspenden‑Infohub <span class="tag" style="margin-left:auto">C — statisch/optional</span></h3>
         <div class="muted">Backend: nein/optional</div>
-        <p>Klare Weiterleitung/FAQ, "Was wird gebraucht?", Abhol‑/Ausgabe‑Regeln, Alternativen in Göttingen.</p>
+        <p>Beschreibung: Klarer Leitfaden für Spenden: Was wird gebraucht, Abgabe‑ und Abholregeln, Weiterleitung an passende Stellen und FAQ für Spender*innen.</p>
         <ul class="list"><li>FAQ & Abläufe</li><li>Praktische Hinweise</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/goettinger-spendenzentrum.html" target="_blank" rel="noopener">Link</a></div>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/gemeinwesenarbeit/goettinger-spendenzentrum.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <!-- D) Intern -->
-      <article class="card" data-section="D" data-backend="yes" data-search="27 Fall Case Management Light Coaching Integration BiF Kontaktverlauf Aufgaben Dokumente Termine Rollen Rechte Audit Log Exporte">
+      <article class="card" data-section="D" data-backend="yes" data-search="27 Fall Case Management Light Kontaktverlauf Aufgaben Dokumente Termine Rollen Rechte Audit Log Export">
         <h3><span class="num">27</span> Fall-/Case‑Management Light <span class="tag" style="margin-left:auto">D — intern</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Kontaktverlauf, Aufgaben, Dokumente, Termine, Rollen/Rechte, Audit‑Log, Exporte (Berichte).</p>
-        <ul class="list"><li>DSGVO‑konform</li><li>Kontaktverlauf</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Link</a></div>
+        <p>Beschreibung: Leichtes Case‑Management für interne Nutzung: Kontaktverlauf, Aufgaben, Dokumente, Termine und Audit‑Log; Exporte für Berichte und Evaluation.</p>
+        <ul class="list"><li>Kontaktverlauf</li><li>Exporte</li></ul>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/beratung-/-coaching.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
-      <article class="card" data-section="D" data-backend="yes" data-search="28 Partner Management Betriebe Schulen Träger Kooperationshistorie Firmenprofile Ansprechpartner Angebote Plätze Feedback Matching Ergebnisse">
+      <article class="card" data-section="D" data-backend="yes" data-search="28 Partner Management Betriebe Schulen Traeger Firmenprofile Ansprechpartner Angebote Plaetze Feedback">
         <h3><span class="num">28</span> Partner‑Management <span class="tag" style="margin-left:auto">D — intern</span></h3>
         <div class="muted">Backend: ja</div>
-        <p>Firmenprofile, Ansprechpartner, Angebote/Plätze, Feedback, Matching‑Ergebnisse, Erinnerungen, Notizen/Verträge.</p>
+        <p>Beschreibung: Verwaltung von Partnern, Betrieben, Schulen und Trägern: Ansprechpartner, Angebote, Plätze, Feedback und Kooperationshistorie.</p>
         <ul class="list"><li>Partnerdatenbank</li><li>Kooperationshistorie</li></ul>
-        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf.html" target="_blank" rel="noopener">Link</a></div>
+        <div class="actions"><a class="btn" href="https://www.bfgoe.de/angebote/uebergang-schule-beruf.html" target="_blank" rel="noopener">Mehr</a></div>
       </article>
 
     </main>
@@ -360,7 +320,7 @@
         <div class="badge">4) MOBIL Gründer*innen‑Portal</div>
         <div class="badge">5) Gemeinwesenarbeit‑Plattform</div>
       </div>
-      <p style="margin-top:12px" class="note">Hinweis: Diese Seite wurde aus der Markdown‑Datei <a href="https://github.com/programmiererphp/possible-webportale-bfgoe/blob/c7aabf4149e15c3a8ca1071a04f2706f93fc0d79/bfgoe_webprojekte_liste.md" target="_blank" rel="noopener" style="color:var(--accent)">bfgoe_webprojekte_liste.md</a> generiert. Du kannst die Datei direkt als GitHub Page verwenden — z. B. als <code>index.html</code> im Ordner <code>docs/</code> oder auf dem <code>gh-pages</code>-Branch.</p>
+      <p style="margin-top:12px" class="note">Hinweis: Diese Seite wurde aus der Markdown‑Datei <a href="https://github.com/programmiererphp/possible-webportale-bfgoe/blob/c7aabf4149e15c3a8ca1071a04f2706f93fc0d79/bfgoe_webprojekte_liste.md" target="_blank" rel="noopener">bfgoe_webprojekte_liste.md</a> generiert. Texte sind leicht erweitert für bessere Verständlichkeit.</p>
       <p class="note">© BFGoe — Ideenübersicht • erstellt automatisch</p>
     </footer>
   </div>
@@ -398,25 +358,20 @@
           }
         });
 
-        // live region hint (optional): update document.title with count (non-intrusive)
         document.title = `BFGoe — Webprojekte (${visible})`;
       }
 
       searchInput.addEventListener('input', applyFilters);
       filterSection.addEventListener('change', applyFilters);
       filterBackend.addEventListener('change', applyFilters);
-      resetBtn.addEventListener('click', ()=>{
-        searchInput.value=''; filterSection.value='all'; filterBackend.value='all'; applyFilters();
-      });
+      resetBtn.addEventListener('click', ()=>{ searchInput.value=''; filterSection.value='all'; filterBackend.value='all'; applyFilters(); });
 
-      // keyboard focus: press "/" to focus search
       window.addEventListener('keydown', e=>{
         if(e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
           e.preventDefault(); searchInput.focus();
         }
       });
 
-      // initial
       applyFilters();
     })();
   </script>
